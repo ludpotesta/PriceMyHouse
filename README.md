@@ -1,9 +1,14 @@
-# 🏠 PriceMyHouse
-==============
+<p align="center">
+  <img src="assets/PriceMyHouseLogo.jpg" alt="PriceMyHouse Logo" width="160" />
+</p>
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python)
-![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Regression-orange)
-![PyCharm](https://img.shields.io/badge/IDE-PyCharm-green)
+<h1 align="center">PriceMyHouse</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.8+-blue?logo=python" alt="Python" />
+  <img src="https://img.shields.io/badge/Machine%20Learning-Regression-orange" alt="Machine Learning" />
+  <img src="https://img.shields.io/badge/IDE-PyCharm-green" alt="PyCharm" />
+</p>
 
 **PriceMyHouse** è un progetto di **Machine Learning** dedicato alla **predizione dei prezzi delle case**, sviluppato come lavoro universitario per il corso di **Machine Learning (A.A. 2025/2026)**.
 
