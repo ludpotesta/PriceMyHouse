@@ -13,7 +13,8 @@ data/processed/
 data/raw/*.csv
 
 # Models
-models/artifacts/*
+models/artifacts/*.pkl
+models/artifacts/*.joblib
 
 # IDE
 .vscode/
