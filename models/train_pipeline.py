@@ -69,7 +69,7 @@ def prepare_data(
 
 def train_and_evaluate(
     use_xgboost: bool = True,
-    save_best: bool = False,
+    save_best: bool = True,
     return_data: bool = False,
 ) -> Tuple[pd.DataFrame, Dict[str, object]]:
     """Train models, evaluate, and optionally save the best model.
@@ -123,6 +123,6 @@ def train_and_evaluate(
 
 
 if __name__ == "__main__":
-    df_results, _ = train_and_evaluate(use_xgboost=True, save_best=False)
+    df_results, _ = train_and_evaluate(use_xgboost=True, save_best=True)
     print("\nRisultati modelli:\n")
     print(df_results)
