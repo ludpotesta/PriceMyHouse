@@ -39,9 +39,9 @@ Queste caratteristiche lo rendono particolarmente adatto allo studio di **featur
 Nel progetto sono stati sperimentati e confrontati diversi modelli di regressione, tra cui:
 
 - Linear Regression
-- Ridge Regression
-- Lasso Regression
 - Random Forest Regressor
+- Gradient Boosting Regressor
+- XGBoost Regressor (opzionale)
 
 La selezione finale del modello è basata sulle performance ottenute sul validation set.
 
@@ -72,6 +72,7 @@ PriceMyHouse/
 │   └── artifacts/          # modelli salvati (opzionale)
 ├── utils/                  # funzioni di supporto
 ├── requirements.txt
+├── run_preprocess.sh       # runner per il preprocessing con venv
 ├── run_train.sh            # runner per il training con venv
 └── main.py                 # entry point del progetto
 ```
@@ -123,8 +124,6 @@ brew install libomp
 ## 📈 Valutazione delle performance
 
 I modelli sono valutati utilizzando le seguenti metriche di regressione:
-	•	Mean Absolute Error (MAE)
-	•	Mean Squared Error (MSE)
 	•	Root Mean Squared Error (RMSE)
 	•	R² Score
 
