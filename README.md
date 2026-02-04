@@ -102,8 +102,8 @@ I risultati sono presentati tramite analisi numeriche e visualizzazioni grafiche
 ---
 
 ## 👥 Team
-Luigi Potestà [github.com/ludpotesta](https://github.com/ludpotesta)
-Giulia Buonafine [github.com/giub29](https://github.com/giub29)
+- Luigi Potestà [github.com/ludpotesta](https://github.com/ludpotesta)
+- Giulia Buonafine [github.com/giub29](https://github.com/giub29)
 
 ---
 
