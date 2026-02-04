@@ -68,6 +68,7 @@ La selezione finale del modello è basata sulle performance ottenute sul test se
 
 ```text
 PriceMyHouse/
+├── assets/
 ├── data/
 │   ├── raw/                # dataset originale
 │   └── processed/          # dataset preprocessato
