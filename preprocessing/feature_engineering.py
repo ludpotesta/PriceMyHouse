@@ -2,7 +2,7 @@ import pandas as pd
 
 
 def add_features(df: pd.DataFrame) -> pd.DataFrame:
-    """Add engineered features used in the notebook.
+    """Add engineered features used in the notebooks.
 
     Features:
         - HouseAge: YrSold - YearBuilt
