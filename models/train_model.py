@@ -1,4 +1,3 @@
-import xgboost as xgb
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.linear_model import LinearRegression
 
@@ -22,13 +21,21 @@ def train_gradient_boosting(X_train, y_train, params=None):
 
 
 def train_xgboost(X_train, y_train, params=None):
+    try:
+        import xgboost as xgb
+    except Exception as exc:
+        raise ImportError(
+            "XGBoost non disponibile. Installa `xgboost` e, su macOS, `libomp`."
+        ) from exc
+
     default_params = {
         "n_estimators": 500,
         "learning_rate": 0.05,
         "max_depth": 4,
         "subsample": 0.8,
         "colsample_bytree": 0.8,
-        "objective": "reg:squarederror"
+        "objective": "reg:squarederror",
+        "random_state": 42,
     }
 
     if params:
