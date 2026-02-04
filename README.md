@@ -141,4 +141,4 @@ I risultati sono presentati tramite analisi numeriche e visualizzazioni grafiche
 
 📘 Progetto universitario per il corso di Machine Learning
 🏫 Università degli Studi di Salerno
-📅 Anno Accademico 2024/2025
+📅 Anno Accademico 2025/2026
