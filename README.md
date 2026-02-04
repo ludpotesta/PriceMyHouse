@@ -60,6 +60,8 @@ La selezione finale del modello è basata sulle performance ottenute sul validat
 ---
 
 ## 📁 Struttura del progetto
+
+```text
 PriceMyHouse/
 ├── data/
 │   ├── raw/                # dataset originale
@@ -70,7 +72,7 @@ PriceMyHouse/
 ├── utils/                  # funzioni di supporto
 ├── requirements.txt
 └── main.py                 # entry point del progetto
-
+```
 ---
 
 ## 🚀 Avvio locale
