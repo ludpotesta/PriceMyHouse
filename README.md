@@ -77,7 +77,7 @@ PriceWiseML/
 
 1. Clona la repository:
    ```bash
-   git clone https://github.com/USERNAME/PriceWiseML.git
+   git clone https://github.com/ludpotesta/PriceWiseML.git
 
 2.	Apri il progetto con PyCharm
 
@@ -102,8 +102,8 @@ I risultati sono presentati tramite analisi numeriche e visualizzazioni grafiche
 ---
 
 ## 👥 Team
-	•	Luigi Potestà
-	•	Giulia Buonafine
+	•	Luigi Potestà github.com/ludpotesta
+	•	Giulia Buonafine github.com/Giub29
 
 ---
 
