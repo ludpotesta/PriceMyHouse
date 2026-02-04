@@ -110,6 +110,8 @@ PriceMyHouse/
    python models/train_pipeline.py
    ```
 
+   Il miglior modello viene salvato automaticamente in `models/artifacts/`.
+
 ### Nota su XGBoost (macOS)
 Se vuoi usare XGBoost su macOS, serve anche la libreria OpenMP:
 ```bash
