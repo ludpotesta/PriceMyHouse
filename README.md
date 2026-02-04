@@ -1,4 +1,4 @@
-# 🏠 PriceWiseML
+# 🏠 PriceMyHouse
 ==============
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
@@ -60,7 +60,7 @@ La selezione finale del modello è basata sulle performance ottenute sul validat
 ---
 
 ## 📁 Struttura del progetto
-PriceWiseML/
+PriceMyHouse/
 ├── data/
 │   ├── raw/                # dataset originale
 │   └── processed/          # dataset preprocessato
@@ -77,7 +77,7 @@ PriceWiseML/
 
 1. Clona la repository:
    ```bash
-   git clone https://github.com/ludpotesta/PriceWiseML.git
+   git clone https://github.com/ludpotesta/PriceMyHouse.git
 
 2.	Apri il progetto con PyCharm
 
@@ -102,8 +102,8 @@ I risultati sono presentati tramite analisi numeriche e visualizzazioni grafiche
 ---
 
 ## 👥 Team
-	•	Luigi Potestà github.com/ludpotesta
-	•	Giulia Buonafine github.com/giub29
+	•	Luigi Potestà [github.com/ludpotesta](https://github.com/ludpotesta)
+	•	Giulia Buonafine [github.com/giub29](https://github.com/giub29)
 
 ---
 
