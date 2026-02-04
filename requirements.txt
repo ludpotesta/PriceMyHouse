@@ -1,0 +1,9 @@
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+
+# Optional (used in the notebook)
+# xgboost
+# shap
