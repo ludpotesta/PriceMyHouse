@@ -1,11 +1,11 @@
 # 🏠 PriceMyHouse
 ==============
 
-![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
+![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python)
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Regression-orange)
 ![PyCharm](https://img.shields.io/badge/IDE-PyCharm-green)
 
-**PriceWiseML** è un progetto di **Machine Learning** dedicato alla **predizione dei prezzi delle case**, sviluppato come lavoro universitario per il corso di **Machine Learning (A.A. 2024/2025)**.
+**PriceMyHouse** è un progetto di **Machine Learning** dedicato alla **predizione dei prezzi delle case**, sviluppato come lavoro universitario per il corso di **Machine Learning (A.A. 2024/2025)**.
 
 Il progetto affronta un problema di **regressione**, applicando l’intera pipeline di Machine Learning:  
 analisi esplorativa, preprocessing dei dati, feature engineering, addestramento dei modelli e valutazione delle performance.
@@ -43,7 +43,7 @@ Nel progetto sono stati sperimentati e confrontati diversi modelli di regression
 - Gradient Boosting Regressor
 - XGBoost Regressor (opzionale)
 
-La selezione finale del modello è basata sulle performance ottenute sul validation set.
+La selezione finale del modello è basata sulle performance ottenute sul test set.
 
 ---
 
