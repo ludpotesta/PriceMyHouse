@@ -70,12 +70,14 @@ def prepare_data(
 def train_and_evaluate(
     use_xgboost: bool = True,
     save_best: bool = False,
+    return_data: bool = False,
 ) -> Tuple[pd.DataFrame, Dict[str, object]]:
     """Train models, evaluate, and optionally save the best model.
 
     Returns:
         results_df: Metrics table sorted by RMSE.
         models: Dict of trained models by name.
+        (optional) X_train, X_test, y_train, y_test if return_data=True.
     """
     X_train, X_test, y_train, y_test = prepare_data()
 
@@ -113,6 +115,9 @@ def train_and_evaluate(
         model = models[best_name]
         save_path = MODEL_DIR / f"{best_name.lower().replace(' ', '_')}.joblib"
         save_model(model, str(save_path))
+
+    if return_data:
+        return results_df, models, (X_train, X_test, y_train, y_test)
 
     return results_df, models
 
