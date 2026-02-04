@@ -97,7 +97,7 @@ PriceMyHouse/
 
 5. Preprocessing (genera `data/processed/train_processed.csv`):
    ```bash
-   python main.py
+   ./run_preprocess.sh
    ```
 
 6. Training modelli:
