@@ -129,6 +129,15 @@ I modelli sono valutati utilizzando le seguenti metriche di regressione:
 
 I risultati sono presentati tramite analisi numeriche e visualizzazioni grafiche.
 
+Esempio di risultati (train/test split 80/20, `random_state=42`):
+
+| Modello | RMSE | R² |
+| --- | --- | --- |
+| XGBoost | 0.133500 | 0.904495 |
+| Gradient Boosting | 0.139144 | 0.896248 |
+| Random Forest | 0.148221 | 0.882271 |
+| Linear Regression | 0.210474 | 0.762613 |
+
 ---
 
 ## 👥 Team
