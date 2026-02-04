@@ -1,1 +1,116 @@
-# PriceMyHouse
+# 🏠 PriceMyHouse
+==============
+
+![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Regression-orange)
+![PyCharm](https://img.shields.io/badge/IDE-PyCharm-green)
+
+**PriceWiseML** è un progetto di **Machine Learning** dedicato alla **predizione dei prezzi delle case**, sviluppato come lavoro universitario per il corso di **Machine Learning (A.A. 2024/2025)**.
+
+Il progetto affronta un problema di **regressione**, applicando l’intera pipeline di Machine Learning:  
+analisi esplorativa, preprocessing dei dati, feature engineering, addestramento dei modelli e valutazione delle performance.
+
+---
+
+## 📌 Obiettivo del progetto
+
+L’obiettivo del progetto è prevedere il **prezzo di vendita di una casa** a partire da un insieme eterogeneo di feature strutturali, qualitative e quantitative, utilizzando tecniche di **Machine Learning supervisionato**.
+
+---
+
+## 📊 Dataset
+
+- **Nome:** House Prices – Advanced Regression Techniques  
+- **Fonte:** Kaggle  
+- **Tipologia:** Dataset reale ad alta dimensionalità  
+
+Il dataset presenta diverse problematiche tipiche dei dati reali, tra cui:
+- valori mancanti
+- variabili categoriche
+- feature ridondanti
+- presenza di outlier
+
+Queste caratteristiche lo rendono particolarmente adatto allo studio di **feature engineering** e modelli di regressione.
+
+---
+
+## 🧠 Modelli utilizzati
+
+Nel progetto sono stati sperimentati e confrontati diversi modelli di regressione, tra cui:
+
+- Linear Regression
+- Ridge Regression
+- Lasso Regression
+- Random Forest Regressor
+
+La selezione finale del modello è basata sulle performance ottenute sul validation set.
+
+---
+
+## ⚙️ Tecnologie utilizzate
+
+- **Python**
+- **PyCharm**
+- **NumPy**
+- **Pandas**
+- **Scikit-learn**
+- **Matplotlib**
+- **Seaborn**
+
+---
+
+## 📁 Struttura del progetto
+
+```text
+PriceMyHouse/
+├── data/
+│   ├── raw/                # dataset originale
+│   └── processed/          # dataset preprocessato
+├── notebooks/              # analisi esplorativa e sperimentazioni
+├── preprocessing/          # pulizia dati e feature engineering
+├── models/                 # training e valutazione modelli
+├── utils/                  # funzioni di supporto
+├── requirements.txt
+└── main.py                 # entry point del progetto
+```
+---
+
+## 🚀 Avvio locale
+
+1. Clona la repository:
+   ```bash
+   git clone https://github.com/ludpotesta/PriceMyHouse.git
+
+2.	Apri il progetto con PyCharm
+
+3.	Crea un ambiente virtuale e installa le dipendenze:
+pip install -r requirements.txt
+
+4.	Avvia il progetto:
+python main.py
+
+---
+
+## 📈 Valutazione delle performance
+
+I modelli sono valutati utilizzando le seguenti metriche di regressione:
+	•	Mean Absolute Error (MAE)
+	•	Mean Squared Error (MSE)
+	•	Root Mean Squared Error (RMSE)
+	•	R² Score
+
+I risultati sono presentati tramite analisi numeriche e visualizzazioni grafiche.
+
+---
+
+## 👥 Team
+- Luigi Potestà [github.com/ludpotesta](https://github.com/ludpotesta)
+- Giulia Buonafine [github.com/giub29](https://github.com/giub29)
+
+---
+
+## 🎓 Contesto accademico
+
+📘 Progetto universitario per il corso di Machine Learning
+🏫 Università degli Studi di Salerno
+📅 Anno Accademico 2024/2025
