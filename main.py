@@ -3,6 +3,10 @@ from typing import Tuple
 
 import pandas as pd
 
+from models.train_model import train_xgboost
+from models.evaluate_model import evaluate_model
+from models.save_load_model import save_model
+
 from preprocessing import (
     add_features,
     clean_data,
@@ -15,10 +19,10 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 RAW_PATH = PROJECT_ROOT / "data" / "raw" / "train.csv"
 PROCESSED_PATH = PROJECT_ROOT / "data" / "processed" / "train_processed.csv"
 FIGURES_DIR = PROJECT_ROOT / "reports" / "figures"
+MODEL_PATH = PROJECT_ROOT / "models" / "artifacts" / "xgb_model.pkl"
 
 
 def save_figures(df: pd.DataFrame, output_dir: Path) -> None:
-    """Save basic EDA figures to reports/figures/."""
     import matplotlib.pyplot as plt
     import seaborn as sns
 
@@ -43,13 +47,6 @@ def save_figures(df: pd.DataFrame, output_dir: Path) -> None:
 
 
 def run_pipeline(save_reports: bool = False) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series]:
-    """Run the preprocessing pipeline and return processed data.
-
-    Returns:
-        processed_df: Encoded dataset with target.
-        X: Features.
-        y: Target (log-transformed).
-    """
     df_raw = load_raw_data(RAW_PATH)
 
     df_clean = clean_data(df_raw)
@@ -70,8 +67,33 @@ def run_pipeline(save_reports: bool = False) -> Tuple[pd.DataFrame, pd.DataFrame
     return processed_df, X, y
 
 
+def train_and_evaluate(X: pd.DataFrame, y: pd.Series):
+    """Train the XGBoost model, evaluate it, and save the trained model."""
+    print("\nAddestramento del modello XGBoost...")
+    model = train_xgboost(X, y)
+
+    print("Valutazione del modello...")
+    metrics = evaluate_model(model, X, y)
+
+    print(f"RMSE: {metrics['RMSE']:.4f}")
+    print(f"R²:   {metrics['R2']:.4f}")
+
+    MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
+    save_model(model, MODEL_PATH)
+
+    print(f"\nModello salvato in: {MODEL_PATH}")
+    return model, metrics
+
+
 if __name__ == "__main__":
+    print("\nAvvio pipeline di preprocessing...")
     processed_df, X, y = run_pipeline(save_reports=False)
+
     print("Preprocessing completato.")
     print(f"Dataset processato salvato in: {PROCESSED_PATH}")
     print(f"Shape finale: {processed_df.shape}")
+
+    print("\nAvvio training del modello...")
+    model, metrics = train_and_evaluate(X, y)
+
+    print("\nPipeline completata con successo.")
