@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Tuple
 
 import pandas as pd
 
@@ -41,7 +42,7 @@ def save_figures(df: pd.DataFrame, output_dir: Path) -> None:
         plt.close()
 
 
-def run_pipeline(save_reports: bool = False) -> tuple[pd.DataFrame, pd.DataFrame, pd.Series]:
+def run_pipeline(save_reports: bool = False) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series]:
     """Run the preprocessing pipeline and return processed data.
 
     Returns:
