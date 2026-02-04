@@ -74,6 +74,7 @@ PriceMyHouse/
 ├── requirements.txt
 ├── run_preprocess.sh       # runner per il preprocessing con venv
 ├── run_train.sh            # runner per il training con venv
+├── run_cv.sh               # runner per la cross-validation con venv
 └── main.py                 # entry point del progetto
 ```
 ---
@@ -112,6 +113,13 @@ PriceMyHouse/
    ```
 
    Il miglior modello viene salvato automaticamente in `models/artifacts/`.
+
+7. Cross‑validation (opzionale):
+   ```bash
+   ./run_cv.sh
+   ```
+
+   Per modificare il numero di fold, aggiorna `n_splits` nel file.
 
 ### Nota su XGBoost (macOS)
 Se vuoi usare XGBoost su macOS, serve anche la libreria OpenMP:
