@@ -4,7 +4,5 @@ matplotlib
 seaborn
 scikit-learn
 joblib
-
-# Optional (used in the notebook)
-# xgboost
-# shap
+xgboost
+shap
