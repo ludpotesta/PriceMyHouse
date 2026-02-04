@@ -5,7 +5,7 @@
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Regression-orange)
 ![PyCharm](https://img.shields.io/badge/IDE-PyCharm-green)
 
-**PriceMyHouse** è un progetto di **Machine Learning** dedicato alla **predizione dei prezzi delle case**, sviluppato come lavoro universitario per il corso di **Machine Learning (A.A. 2024/2025)**.
+**PriceMyHouse** è un progetto di **Machine Learning** dedicato alla **predizione dei prezzi delle case**, sviluppato come lavoro universitario per il corso di **Machine Learning (A.A. 2025/2026)**.
 
 Il progetto affronta un problema di **regressione**, applicando l’intera pipeline di Machine Learning:  
 analisi esplorativa, preprocessing dei dati, feature engineering, addestramento dei modelli e valutazione delle performance.
