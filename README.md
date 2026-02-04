@@ -66,11 +66,13 @@ PriceMyHouse/
 ├── data/
 │   ├── raw/                # dataset originale
 │   └── processed/          # dataset preprocessato
-├── notebooks/              # analisi esplorativa e sperimentazioni
+├── notebook/               # analisi esplorativa e sperimentazioni
 ├── preprocessing/          # pulizia dati e feature engineering
 ├── models/                 # training e valutazione modelli
+│   └── artifacts/          # modelli salvati (opzionale)
 ├── utils/                  # funzioni di supporto
 ├── requirements.txt
+├── run_train.sh            # runner per il training con venv
 └── main.py                 # entry point del progetto
 ```
 ---
@@ -80,14 +82,39 @@ PriceMyHouse/
 1. Clona la repository:
    ```bash
    git clone https://github.com/ludpotesta/PriceMyHouse.git
+   ```
 
-2.	Apri il progetto con PyCharm
+2. Apri il progetto con PyCharm
 
-3.	Crea un ambiente virtuale e installa le dipendenze:
-pip install -r requirements.txt
+3. Crea un ambiente virtuale e installa le dipendenze:
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   pip install -r requirements.txt
+   ```
 
-4.	Avvia il progetto:
-python main.py
+4. Scarica il dataset Kaggle `train.csv` e posizionalo in `data/raw/train.csv`.
+
+5. Preprocessing (genera `data/processed/train_processed.csv`):
+   ```bash
+   python main.py
+   ```
+
+6. Training modelli:
+   ```bash
+   ./run_train.sh
+   ```
+
+   In alternativa:
+   ```bash
+   python models/train_pipeline.py
+   ```
+
+### Nota su XGBoost (macOS)
+Se vuoi usare XGBoost su macOS, serve anche la libreria OpenMP:
+```bash
+brew install libomp
+```
 
 ---
 
