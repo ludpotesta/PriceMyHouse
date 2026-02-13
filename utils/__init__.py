@@ -1,5 +1,3 @@
-"""Utility functions for PriceMyHouse."""
-
 from .helpers import split_data
 from .plotting import plot_feature_importance
 from .config import PROJECT_ROOT, RAW_DATA_PATH, PROCESSED_DATA_PATH, MODEL_PATH

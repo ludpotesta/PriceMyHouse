@@ -2,9 +2,14 @@ from pathlib import Path
 from typing import Tuple
 
 import pandas as pd
+from sklearn.model_selection import train_test_split
 
-from models.train_model import train_xgboost
-from models.evaluate_model import evaluate_model
+from models.train_model import (
+    train_linear_regression,
+    train_random_forest,
+    train_xgboost,
+)
+from models.evaluate_model import evaluate_model, compare_models
 from models.save_load_model import save_model
 
 from preprocessing import (
@@ -22,38 +27,11 @@ FIGURES_DIR = PROJECT_ROOT / "reports" / "figures"
 MODEL_PATH = PROJECT_ROOT / "models" / "artifacts" / "xgb_model.pkl"
 
 
-def save_figures(df: pd.DataFrame, output_dir: Path) -> None:
-    import matplotlib.pyplot as plt
-    import seaborn as sns
-
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    if "SalePrice" in df.columns:
-        plt.figure(figsize=(8, 5))
-        sns.histplot(df["SalePrice"], kde=True)
-        plt.title("Distribuzione di SalePrice")
-        plt.tight_layout()
-        plt.savefig(output_dir / "saleprice_distribution.png")
-        plt.close()
-
-    corr = df.corr(numeric_only=True)
-    if not corr.empty:
-        plt.figure(figsize=(12, 8))
-        sns.heatmap(corr, cmap="coolwarm")
-        plt.title("Matrice di correlazione (numeriche)")
-        plt.tight_layout()
-        plt.savefig(output_dir / "correlation_heatmap.png")
-        plt.close()
-
-
 def run_pipeline(save_reports: bool = False) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series]:
     df_raw = load_raw_data(RAW_PATH)
 
     df_clean = clean_data(df_raw)
     df_feat = add_features(df_clean)
-
-    if save_reports:
-        save_figures(df_feat, FIGURES_DIR)
 
     df_encoded = encode_categoricals(df_feat, drop_first=True)
     X, y = split_features_target(df_encoded, target="SalePrice", log_target=True)
@@ -67,22 +45,40 @@ def run_pipeline(save_reports: bool = False) -> Tuple[pd.DataFrame, pd.DataFrame
     return processed_df, X, y
 
 
-def train_and_evaluate(X: pd.DataFrame, y: pd.Series):
-    """Train the XGBoost model, evaluate it, and save the trained model."""
-    print("\nAddestramento del modello XGBoost...")
-    model = train_xgboost(X, y)
+def train_and_evaluate_all(X, y):
+    print("\nSuddivisione train/test...")
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42
+    )
 
-    print("Valutazione del modello...")
-    metrics = evaluate_model(model, X, y)
+    results = {}
 
-    print(f"RMSE: {metrics['RMSE']:.4f}")
-    print(f"R²:   {metrics['R2']:.4f}")
+    # Linear Regression
+    print("\nAddestramento Linear Regression...")
+    lr_model = train_linear_regression(X_train, y_train)
+    lr_metrics = evaluate_model(lr_model, X_test, y_test)
+    print(f"Linear Regression → RMSE: {lr_metrics['RMSE']:.4f}, R²: {lr_metrics['R2']:.4f}")
+    results["Linear Regression"] = lr_metrics
 
-    MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
-    save_model(model, MODEL_PATH)
+    # Random Forest
+    print("\nAddestramento Random Forest...")
+    rf_model = train_random_forest(X_train, y_train)
+    rf_metrics = evaluate_model(rf_model, X_test, y_test)
+    print(f"Random Forest → RMSE: {rf_metrics['RMSE']:.4f}, R²: {rf_metrics['R2']:.4f}")
+    results["Random Forest"] = rf_metrics
 
-    print(f"\nModello salvato in: {MODEL_PATH}")
-    return model, metrics
+    # XGBoost
+    print("\nAddestramento XGBoost...")
+    xgb_model = train_xgboost(X_train, y_train)
+    xgb_metrics = evaluate_model(xgb_model, X_test, y_test)
+    print(f"XGBoost → RMSE: {xgb_metrics['RMSE']:.4f}, R²: {xgb_metrics['R2']:.4f}")
+    results["XGBoost"] = xgb_metrics
+
+    # Salvataggio modello finale
+    save_model(xgb_model, MODEL_PATH)
+    print(f"\nModello finale salvato in: {MODEL_PATH}")
+
+    return results
 
 
 if __name__ == "__main__":
@@ -93,7 +89,11 @@ if __name__ == "__main__":
     print(f"Dataset processato salvato in: {PROCESSED_PATH}")
     print(f"Shape finale: {processed_df.shape}")
 
-    print("\nAvvio training del modello...")
-    model, metrics = train_and_evaluate(X, y)
+    print("\nAvvio training e valutazione dei modelli...")
+    results = train_and_evaluate_all(X, y)
+
+    print("\nConfronto modelli:")
+    comparison_table = compare_models(results)
+    print(comparison_table)
 
     print("\nPipeline completata con successo.")

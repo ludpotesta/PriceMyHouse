@@ -2,13 +2,6 @@ import pandas as pd
 
 
 def add_features(df: pd.DataFrame) -> pd.DataFrame:
-    """Add engineered features used in the notebooks.
-
-    Features:
-        - HouseAge: YrSold - YearBuilt
-        - RemodAge: YrSold - YearRemodAdd
-        - TotalSF: TotalBsmtSF + 1stFlrSF + 2ndFlrSF
-    """
     df = df.copy()
 
     if {"YrSold", "YearBuilt"}.issubset(df.columns):

@@ -56,7 +56,6 @@ def prepare_data(
     test_size: float = 0.2,
     random_state: int = 42,
 ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
-    """Load raw data, preprocess, and split into train/test."""
     df = load_raw_data(raw_path)
     df = clean_data(df)
     df = add_features(df)
@@ -72,13 +71,7 @@ def train_and_evaluate(
     save_best: bool = True,
     return_data: bool = False,
 ) -> Tuple[pd.DataFrame, Dict[str, object]]:
-    """Train models, evaluate, and optionally save the best model.
 
-    Returns:
-        results_df: Metrics table sorted by RMSE.
-        models: Dict of trained models by name.
-        (optional) X_train, X_test, y_train, y_test if return_data=True.
-    """
     X_train, X_test, y_train, y_test = prepare_data()
 
     models: Dict[str, object] = {}

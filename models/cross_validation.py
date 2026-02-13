@@ -77,13 +77,7 @@ def run_cross_validation(
     use_xgboost: bool = True,
     random_state: int = 42,
 ) -> pd.DataFrame:
-    """Run K-Fold cross-validation and return mean RMSE/R2.
 
-    Args:
-        n_splits: Number of folds.
-        use_xgboost: Whether to include XGBoost if available.
-        random_state: Random seed for reproducibility.
-    """
     X, y = prepare_data()
 
     cv = KFold(n_splits=n_splits, shuffle=True, random_state=random_state)
