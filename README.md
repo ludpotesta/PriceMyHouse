@@ -72,6 +72,7 @@ PriceMyHouse/
 ├── data/
 │   ├── raw/                # dataset originale
 │   └── processed/          # dataset preprocessato
+├── documents/              # documentazione progetto, report, note tecniche
 ├── notebook/               # analisi esplorativa e sperimentazioni
 ├── preprocessing/          # pulizia dati e feature engineering
 ├── models/                 # training e valutazione modelli
@@ -82,6 +83,7 @@ PriceMyHouse/
 ├── run_train.sh            # runner per il training con venv
 ├── run_cv.sh               # runner per la cross-validation con venv
 └── main.py                 # entry point del progetto
+
 ```
 ---
 
